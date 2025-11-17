@@ -31,8 +31,7 @@ Below are step‑by‑step instructions with placeholders where you can insert s
 3. Search for `Swashbuckle.AspNetCore`
 4. Install the version matching your .NET version (e.g., **v9.x** for .NET 9)
 
-📸 *Insert Screenshot Here:*
-`![Install Swashbuckle](./images/placeholder-install-nuget.png)`
+![Install Swashbuckle](./img/s4.png)
 
 ---
 
@@ -55,8 +54,7 @@ if (app.Environment.IsDevelopment())
 }
 ```
 
-📸 *Insert Screenshot Here:*
-`![Program.cs Changes](./images/placeholder-programcs.png)`
+![Program.cs Changes](./img/s5.png)
 
 ---
 
@@ -68,8 +66,7 @@ if (app.Environment.IsDevelopment())
 2. Click **Debug**
 3. Open **Debug Launch Profiles UI**
 
-📸 *Insert Screenshot Here:*
-`![Debug Profiles](./images/placeholder-debug-profiles.png)`
+![Debug Profiles](./img/s7.png)
 
 ---
 
@@ -81,30 +78,43 @@ In the **Application URL**, append `/swagger`:
 https://localhost:7187/swagger
 ```
 
-📸 *Insert Screenshot Here:*
-`![Launch URL Swagger](./images/placeholder-launchurl.png)`
+![Launch URL Swagger](./img/s8.png)
 
 ---
 
 ## **4️⃣ Update launchSettings.json**
 
-Open **Properties → launchSettings.json** and modify the `https` profile:
+Open **Properties → launchSettings.json** and modify:
 
 ```json
-"https": {
-  "commandName": "Project",
-  "launchBrowser": true,
-  "launchUrl": "swagger",
-  "environmentVariables": {
-    "ASPNETCORE_ENVIRONMENT": "Development"
+{
+  "profiles": {
+    "http": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "launchUrl": "swagger",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "dotnetRunMessages": true,
+      "applicationUrl": "http://localhost:5068"
+    },
+    "https": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "launchUrl": "swagger",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "dotnetRunMessages": true,
+      "applicationUrl": "https://localhost:7187;http://localhost:5068"
+    }
   },
-  "dotnetRunMessages": true,
-  "applicationUrl": "https://localhost:7187;http://localhost:5068"
+  "$schema": "https://json.schemastore.org/launchsettings.json"
 }
 ```
 
-📸 *Insert Screenshot Here:*
-`![launchSettings.json](./images/placeholder-launchsettings.png)`
+![launchSettings.json](./img/s9.png)
 
 ---
 
@@ -116,8 +126,7 @@ Now press **F5** → Swagger will automatically open:
 https://localhost:xxxx/swagger
 ```
 
-📸 *Insert Screenshot Here:*
-`![Swagger UI](./images/placeholder-swagger-ui.png)`
+![Swagger UI](./img/s10.png)
 
 ---
 
@@ -128,11 +137,3 @@ You now have:
 * Swagger installed ✔️
 * UI enabled ✔️
 * Automatic opening ✔️
-
-This documentation is ready for you to insert your screenshots in the placeholders.
-
-If you want, I can also create:
-
-* A **PDF** version
-* A **GitHub‑ready README.md**
-* A **step‑by‑step guide with numbering & borders**
